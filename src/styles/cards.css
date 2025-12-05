@@ -1,53 +1,44 @@
 .categories_container{
     display: flex;
-    
-
-
 }
 
-.categories img{
-    width: 150px;
-    display: block;
-
-    border-radius: 50px;
+.categories-item__img img{
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border: solid 3px black;
-    clip-path: circle();
-    
-    
-    
-    
-
-    overflow: hidden;
-    
-
-    
 
 }
 
 .categories__title{
     font-family: Roboto;
     text-align: center;
-    color: rgb(110, 99, 172);
+    color: rgb(161, 93, 65);
     text-transform: uppercase;
-    
-    
 }
 
 .categories__list{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 100px;
+    gap: 20px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .category-item{
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgba(100, 100, 100, 0.288);
+    background-color: var(--color-white);
+
+    border: 1px solid rgb(202, 127, 109);
     border-radius: 10px;
-    height: 150px;
-    
+
+    height: 180px;
+
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+
+    padding: 15px;
+    gap: 10px;
     
     
     
@@ -58,40 +49,36 @@
 }
 
 .category-item:hover{
-    transform: scale(1.2);
+    transform: scale(1.05);
     cursor: pointer;
     box-shadow: 0 4px 8px rgb(199, 199, 199);
-
-
 }
 
 .category-item__img{
-    display: flex;
+    display: block;
     width: 100px;
     height: 100px;
-    align-items: center;
-    
 
-    
-    
-    
-    
-    
+    border-radius: 50%;
+    overflow: hidden;
 
+    border: solid 3px #1d3557;
 }
 
-
-
-
 .button--small{
-    background-color: rgb(255, 172, 18);
-   
+
+    background-color: rgb(241, 163, 18);
+    text-align: center;
     border-radius: 5px;
     width: 100px;
     padding: 2px;
     height: 23px;
     color: black;
-    font-family: Roboto;
+    font-family: "Roboto";
+    
+   
+    
+    
     
 }
 

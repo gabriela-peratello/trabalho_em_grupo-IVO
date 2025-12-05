@@ -7,7 +7,7 @@
 .products__grid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 40px;
 }
 .products__title{
     text-transform: uppercase;
@@ -20,6 +20,7 @@
     flex-direction: column;
     border-radius: 5px;
     overflow: hidden;
+    margin-bottom: 25px;
     
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.274);
     transition: box-shadow .3s ease;
@@ -53,9 +54,11 @@
     color: #555;
     font-family: "Roboto";
     flex-grow: 1;
+    margin-bottom: 10px;
 }
 .card__price{
     color: red;
+    margin-left: 10px;
     
 }
 .button--primary{
@@ -68,11 +71,14 @@
 
 .button__comprar{
     display: flex;
-    padding: 5px;
-    background-color: rgb(238, 182, 78);
     flex-direction: row;
-    margin-left: auto;
+    padding: 5px;
+
+    background-color: rgb(238, 182, 78);
+   
+    
     align-items: center;
     border-radius: 4px;
+    margin:auto 150px 10px;
 
 }

@@ -4,42 +4,53 @@
     flex-wrap: wrap;
     width: 100%;
     align-items: center;
-    
-    
-    
 }
 
 .header__container{
     display: flex;
     padding: 25px;
-    
-    
-    
+}
 
+
+.header__logo{
+
+}
+
+.header__nav{
+    display: flex;
 }
 
 .header__menu{
     display: flex;
-    
-    
 }
 
+
 .header__item{
-    display: block;
-    padding: 10px;
-    
-    
+
 }
 
 .header__link{
     color: black;
 }
 
-.header__nav{
-    display: flex;
-    
-    
+.header__social{
+
 }
+
+.header__item{
+    display: block;
+    padding: 10px;
+}
+
+
+.header__ic0on{
+
+}
+
+.header__
+
+
+
 
 
 
@@ -51,8 +62,7 @@
 
 
 body{
-    background-color:white;
-    height: 2000px;
+    background-color:rgb(255, 255, 255);
 
 }
 
@@ -89,7 +99,8 @@ body{
 
 
 .footer{
-    position:fixed;
+    /* position:fixed; */
+    bottom: 0;
     background-color: red;
     width: 100%;
     display: flex;
@@ -98,16 +109,16 @@ body{
     justify-content:center
     
     
+    
 }
 
 
 
 .footer__text{
-    background-color: red;
     align-items: center;
     padding: 15px;
     justify-content: center;
-    
+    background-color: #ff0000;
     
     
 }

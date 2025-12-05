@@ -10,12 +10,6 @@ button
 button--small
 
 
-produtos:
-
-products__container
-card__image-wrapper
-card__price
-
 
 
 Produtos menu classes:

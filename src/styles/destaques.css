@@ -3,12 +3,18 @@
     max-width: 800px;
     flex-wrap: wrap;
     margin: 0 auto;
+    background-color: aqua;
+    
+}
+
+.products__container{
     
 }
 
 .products__grid{
     display: grid;
     grid-template-columns: repeat(3, 250px);
+    gap: 20px;
 }
 
 .products__title{
@@ -20,19 +26,25 @@
 
 
 .card{
+    display: flex;
+    flex-direction: column;
+    border: solid 1px;
+    border-radius: 5px;
+    overflow: hidden;
     
 }
 
 .card__body{
     border: solid 1px;
+    
  }
 
 .card__image{
     width: 100%;
-    height: auto;
-    
-    align-items: center;
-    border-radius: 20px;
+    height: 180px;       
+    object-fit: cover;  
+    display: block;
+    border-radius: 5px 5px 0 0;
 }
 
 
@@ -49,4 +61,13 @@
 .card__description{
     padding: 5px;
     
+}
+
+.card__image-wrapper{
+
+}
+
+
+.card__price{
+
 }

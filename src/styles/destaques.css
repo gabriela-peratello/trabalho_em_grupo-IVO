@@ -3,71 +3,56 @@
     max-width: 800px;
     flex-wrap: wrap;
     margin: 0 auto;
-    background-color: aqua;
-    
 }
-
-.products__container{
-    
-}
-
 .products__grid{
     display: grid;
     grid-template-columns: repeat(3, 250px);
     gap: 20px;
 }
-
 .products__title{
-    display: flex;
+    text-transform: uppercase;
     padding: 5%;
-    
-    justify-content: center;
+    text-align: center;
+    color: rgb(34, 54, 145);
 }
-
-
 .card{
     display: flex;
     flex-direction: column;
-    border: solid 1px;
     border-radius: 5px;
     overflow: hidden;
     
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: box-shadow .3s ease;
+
+    background-color: white;
+
 }
-
-.card__body{
-    border: solid 1px;
-    
- }
-
 .card__image{
     width: 100%;
     height: 180px;       
     object-fit: cover;  
-    display: block;
     border-radius: 5px 5px 0 0;
 }
-
-
-.card__footer{
-    padding: 10px;
-}
-
-
 .card__title{
-    color: brown;
+    color: rgb(34, 54, 145);
     padding: 10px;
+    font-family: "Roboto";
+    text-transform: uppercase;
 }
-
 .card__description{
     padding: 5px;
+    color: #555;
+    font-family: "Roboto";
+}
+.card__price{
+    color: red;
     
 }
-
-.card__image-wrapper{
-
-}
-
-
-.card__price{
-
+.button--primary{
+    border-radius: 5px;
+    padding: 10px;
+    border: solid 2px rgb(240, 60, 60);
+    background-color: rgb(240, 60, 60);
+    color: white;
+    
 }

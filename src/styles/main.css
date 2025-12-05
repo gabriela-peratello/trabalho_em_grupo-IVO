@@ -2,52 +2,79 @@
     background-color: #ff0000;
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    justify-content: space-between;
     align-items: center;
+    padding: 30px;
+    justify-content: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+    
+    
 }
 
 .header__container{
+    width: 100%;
     display: flex;
-    padding: 25px;
+    
+    justify-content: space-between;
+    
 }
-
 
 .header__logo{
-
-}
-
-.header__nav{
     display: flex;
+    color: white;
+    align-items: center;
+    font-weight: bold;
+    
 }
 
 .header__menu{
     display: flex;
 }
 
-
 .header__item{
-
-}
+    display: flex;
+    margin-right: 50px;
+    align-items: center;
+    }
 
 .header__link{
     color: black;
+    font-weight: 400;
+}
+
+.header__link:hover{
+    font-weight: 700;
+    transition: color 0.2s ease;
 }
 
 .header__social{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    
+}
+
+.header__icon{
+    color: black;
 
 }
 
-.header__item{
-    display: block;
-    padding: 10px;
+.header__icon:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.header__toggle{
+    display: none;
 }
 
 
-.header__ic0on{
 
-}
 
-.header__
+
+
 
 
 
@@ -65,9 +92,41 @@ body{
     background-color:rgb(255, 255, 255);
 
 }
+.banner {
+    height: 400px; 
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://images.pexels.com/photos/12034622/pexels-photo-12034622.jpeg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-direction: column;
+    text-align: center;
+    color: var(--color-white);
+}
+
+.banner__content{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.banner__title{
+    font-family: sans-serif;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
 
 
+.banner__title--highlight{
+    color: red;
+}
 
+.banner__subtitle{
+    color: white;
+}
 
 
 
@@ -106,9 +165,8 @@ body{
     display: flex;
     align-items: center;
     padding: 15px;
-    justify-content:center
-    
-    
+    justify-content:center;
+    margin-top: 20px;
     
 }
 
@@ -119,6 +177,8 @@ body{
     padding: 15px;
     justify-content: center;
     background-color: #ff0000;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     
     
 }

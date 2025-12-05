@@ -1,0 +1,52 @@
+.products {
+    display: flex;
+    max-width: 800px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    
+}
+
+.products__grid{
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+}
+
+.products__title{
+    display: flex;
+    padding: 5%;
+    
+    justify-content: center;
+}
+
+
+.card{
+    
+}
+
+.card__body{
+    border: solid 1px;
+ }
+
+.card__image{
+    width: 100%;
+    height: auto;
+    
+    align-items: center;
+    border-radius: 20px;
+}
+
+
+.card__footer{
+    padding: 10px;
+}
+
+
+.card__title{
+    color: brown;
+    padding: 10px;
+}
+
+.card__description{
+    padding: 5px;
+    
+}

@@ -6,9 +6,9 @@ app = Flask(__name__)
 def pag_inicial():
     return render_template("index.html")
 
-@app.route("/pagina2")
+@app.route("/produto")
 def pag_dois():
-    return render_template("layout.html")
+    return render_template("card.html")
 
 
 app.run()

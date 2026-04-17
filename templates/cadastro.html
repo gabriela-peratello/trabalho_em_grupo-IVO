@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar</title>
+    <style>
+       body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #1a1a1a; /* Preto fosco */
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        gap: 20px; 
+    }
+
+    .titulo {
+        font-size: 1.2rem;
+        text-align: center;
+        padding: 15px 25px;
+        background-color: #333333; /* Cinza mediano */
+        border-radius: 20px;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+        color: #eeeeee; /* Cinza quase branco */
+    }
+
+    .container-login {
+        display: flex;
+        background-color: #333333; /* Cinza mediano */
+        padding: 40px;
+        border-radius: 30px;
+        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .usuario, .senha {
+        color: #cccccc; /* Cinza claro */
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .textinho {
+        background-color: #444444; /* Cinza destaque */
+        border-radius: 12px;
+        border: 1px solid #555; 
+        padding: 12px;
+        margin-top: 8px;
+        color: white;
+        box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.3);
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .textinho:focus {
+        outline: none;
+        border-color: #777;
+        background-color: #4a4a4a;
+    }
+
+    .botao {
+        border-radius: 30px;
+        padding: 12px;
+        background-color: #555555;
+        color: white;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+        border: none;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .botao:hover {
+        background-color: #777777;
+        transform: translateY(-2px);
+    }
+
+    .botao:active {
+        transform: translateY(0);
+    }
+    </style>
+</head>
+<body>
+
+    <!-- Criamos um "wrapper" para empilhar o H1 e o Form -->
+    <div class="wrapper">
+        <h1 class="titulo">Faça seu login para entrar</h1>
+        
+        
+        <div class="container-login">
+            <form action="/cadastro/post" method="post">
+                <div class="usuario">
+                    <label>Usuário</label><br>
+                    <input id="usuario" name="usuario" type="text" class="textinho">
+                </div><br>
+                <div class="senha">
+                    <label>Senha</label><br>
+                    <input id="senha" name="senha" type="password" class="textinho">
+                </div><br>
+                <button type="submit" style="width: 100%;" class="botao">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
+</body>
+</html>

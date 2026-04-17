@@ -1,125 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar</title>
-    <style>
-       body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
-        overflow: hidden;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #1a1a1a; /* Preto fosco */
+  <meta charset="UTF-8">
+  <title>Cadastro - Burger House</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #fff8e1;
     }
 
-    .wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center; 
-        gap: 20px; 
+    header {
+      background: #b71c1c;
+      color: white;
+      text-align: center;
+      padding: 20px;
     }
 
-    .titulo {
-        font-size: 1.2rem;
-        text-align: center;
-        padding: 15px 25px;
-        background-color: #333333; /* Cinza mediano */
-        border-radius: 20px;
-        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
-        color: #eeeeee; /* Cinza quase branco */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 80px);
     }
 
-    .container-login {
-        display: flex;
-        background-color: #333333; /* Cinza mediano */
-        padding: 40px;
-        border-radius: 30px;
-        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.6);
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 320px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    .usuario, .senha {
-        color: #cccccc; /* Cinza claro */
-        font-size: 1rem;
-        font-weight: bold;
+    h2 {
+      text-align: center;
+      color: #b71c1c;
     }
 
-    .textinho {
-        background-color: #444444; /* Cinza destaque */
-        border-radius: 12px;
-        border: 1px solid #555; 
-        padding: 12px;
-        margin-top: 8px;
-        color: white;
-        box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.3);
-        width: 100%;
-        box-sizing: border-box;
+    label {
+      display: block;
+      margin-top: 12px;
     }
 
-    .textinho:focus {
-        outline: none;
-        border-color: #777;
-        background-color: #4a4a4a;
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
     }
 
-    .botao {
-        border-radius: 30px;
-        padding: 12px;
-        background-color: #555555;
-        color: white;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
-        border: none;
-        font-size: 1rem;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.3s ease;
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      background: #fbc02d;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
-    .botao:hover {
-        background-color: #777777;
-        transform: translateY(-2px);
+    .link {
+      margin-top: 15px;
+      text-align: center;
     }
 
-    .botao:active {
-        transform: translateY(0);
+    .link a {
+      color: #b71c1c;
+      text-decoration: none;
+      font-weight: bold;
     }
-    </style>
+  </style>
 </head>
 <body>
 
-    <!-- Criamos um "wrapper" para empilhar o H1 e o Form -->
-    <div class="wrapper">
-        <h1 class="titulo">Faça seu login para entrar</h1>
-        
-        
-        <div class="container-login">
-            <form action="/cadastro/post" method="post">
-                <div class="usuario">
-                    <label>Usuário</label><br>
-                    <input id="usuario" name="usuario" type="text" class="textinho">
-                </div><br>
-                <div class="senha">
-                    <label>Senha</label><br>
-                    <input id="senha" name="senha" type="password" class="textinho">
-                </div><br>
-                <button type="submit" style="width: 100%;" class="botao">Entrar</button>
-            </form>
-        </div>
+<header>Burger House</header>
+
+<div class="container">
+  <div class="card">
+    <h2>Cadastro</h2>
+
+    <form action="/cadastrar_usuario" method="POST">
+      <label>Nome</label>
+      <input type="text" name="nome" required>
+
+      <label>Usuário</label>
+      <input type="text" name="usuario" required>
+
+      <label>Senha</label>
+      <input type="password" name="senha" required>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+
+    <div class="link">
+      Já tem cadastro? <a href="login.html">Faça login</a>
     </div>
+  </div>
+</div>
 
-</body>
-</html>
 </body>
 </html>

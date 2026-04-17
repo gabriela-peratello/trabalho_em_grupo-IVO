@@ -1,29 +1,20 @@
 from flask import Flask, redirect, render_template, request
-from model.produto import recuperar_produto
+from model.produto import recuperar_produtos
 from model.usuario import Usuario
 
 app = Flask(__name__)
 
 @app.route("/")
 def pag_inicial():
-    produtos = []
+    produtos = recuperar_produtos()
     return render_template("index.html", produtos=produtos)
 
 @app.route("/produto/<codigo>")
 def pag_dois(codigo):
-    try:
-        produto = recuperar_produto(codigo)
+    return "Rota de produto (ainda não usada no momento)"
 
-        if not produto:
-            return "Produto não encontrado", 404
 
-        return render_template("produto.html", produto=produto)
-
-    except Exception as e:
-        return f"Erro: {e}"
-    
-
-@app.route("/cadastrar_usuario", methods= ["POST"])
+@app.route("/cadastrar_usuario", methods=["POST"])
 def cadastrar_usuario():
     usuario = request.form.get("usuario")
     senha = request.form.get("senha")
@@ -34,17 +25,10 @@ def cadastrar_usuario():
 
     return redirect("/")
 
+
 @app.get("/cadastro")
 def cadastro_login():
     return render_template("cadastro.html")
-
-
-
-
-
-
-
-
 
 
 if __name__ == "__main__":

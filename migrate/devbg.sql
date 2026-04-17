@@ -9,3 +9,9 @@ preco FLOAT,
 foto VARCHAR (500)
 );
 
+CREATE TABLE IF NOT EXISTS devbg.usuarios (
+usuario VARCHAR(100),
+senha VARCHAR(200),
+nome VARCHAR (100)
+);
+

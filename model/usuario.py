@@ -14,3 +14,18 @@ class Usuario:
                     """, [self.usuario, self.senha, self.nome])
         conexao.commit()
         conexao.close()
+
+    # Ou usar staticmethod ou self, não da pra usar os dois
+    @staticmethod
+    def logar(usuario:str, senha:str) -> dict:
+        conexao, cursor = conectar()
+
+        cursor.execute(""" SELECT usuario, senha FROM devbg.usuarios WHERE usuario = %s and senha = %s
+                       """,
+                    (usuario, senha))
+        
+        resultado = cursor.fetchone()
+        conexao.close()
+
+        return resultado
+

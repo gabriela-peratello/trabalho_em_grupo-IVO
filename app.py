@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, session
 from model.produto import recuperar_produtos
 from model.usuario import Usuario
 
@@ -26,7 +26,19 @@ def cadastrar_usuario():
     return redirect("/")
 
 
-@app.get("/cadastro")
+@app.route("/logar/usuario", methods = ["POST"])
+def logar_usuario():
+    usuario = request.form.get("usuario")
+    senha = request.form.get("senha")
+
+    resultado = Usuario.logar(usuario, senha)
+
+    if not resultado:
+        session["usuario_logado"] = resultado
+
+    return redirect("/")
+
+@app.get("/cadastro_login")
 def cadastro_login():
     return render_template("cadastro.html")
 

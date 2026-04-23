@@ -1,53 +1,341 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DevBurger - Flex & Grid 2025</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevBurger - Flex & Grid 2025</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Oswald:wght@500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/reset.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/variables.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/media.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/cards.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/destaques.css') }}">
-  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <body>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #fff8f0;
+      color: #2b2b2b;
+      padding-top: 90px;
+    }
 
-    <!-- Header -->
-    <header class="header">
-      <div class="header__container">
-        <a href="/" class="header__logo">DevBurger</a>
+    a {
+      text-decoration: none;
+    }
 
-        <nav class="header__nav">
-          <ul class="header__menu">
-            <li><a href="/" class="header__link">Home</a></li>
-            <li><a href="#menu" class="header__link">Cardápio</a></li>
-            <li><a href="#" class="header__link">Sobre</a></li>
-            <li><a href="/cadastro" class="header__link">Cadastro</a></li>
-          </ul>
-        </nav>
+    ul {
+      list-style: none;
+    }
+
+    /* HEADER */
+    .header {
+      background-color: #8b0000;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .header__container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .header__logo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem;
+      color: #ffd700;
+    }
+
+    .header__nav {
+      flex: 1;
+    }
+
+    .header__menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .header__item a {
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .header__item a:hover {
+      color: #ffd700;
+    }
+
+    .header__button {
+      display: inline-block;
+      padding: 8px 14px;
+      background-color: #ffd700;
+      color: #8b0000 !important;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .header__social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .header__icon {
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header__icon:hover {
+      color: #ffd700;
+    }
+
+    .header__toggle {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* CARRINHO */
+    #toggle-cart {
+      display: none;
+    }
+
+    .open-cart {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      background: #e11d48;
+      color: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      cursor: pointer;
+      z-index: 1100;
+      font-weight: bold;
+      text-transform: uppercase;
+      border: 3px solid #facc15;
+      box-shadow: 0 4px 0 #9f1239;
+      transition: all 0.2s ease;
+    }
+
+    .open-cart:hover {
+      background: #facc15;
+      color: #e11d48;
+      transform: scale(1.05);
+    }
+
+    .cart {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 350px;
+      height: 100vh;
+      background: #fff;
+      border-left: 8px solid #facc15;
+      box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 1200;
+      font-family: 'Arial Rounded MT Bold', 'Helvetica', sans-serif;
+    }
+
+    #toggle-cart:checked~.cart {
+      transform: translateX(0);
+    }
+
+    .close-cart {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #f3f4f6;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #9f1239;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .cart h2 {
+      margin-top: 30px;
+      margin-bottom: 20px;
+      color: #8b0000;
+    }
+
+    .cart-items {
+      min-height: 200px;
+      margin-bottom: 20px;
+    }
+
+    .cart-footer {
+      border-top: 1px solid #ddd;
+      padding-top: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cart-footer button {
+      background-color: #e11d48;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .cart-footer button:hover {
+      background-color: #be123c;
+    }
+
+    /* CONTEÚDO */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      min-height: calc(100vh - 160px);
+    }
+
+    /* FOOTER */
+    .footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    .footer__text {
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 140px;
+      }
+
+      .header__container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .header__menu {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .cart {
+        width: 100%;
+      }
+
+      .open-cart {
+        top: 150px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- checkbox do carrinho -->
+  <input type="checkbox" id="toggle-cart">
+
+  <!-- botão flutuante -->
+  <label for="toggle-cart" class="open-cart">
+    🛒
+  </label>
+
+  <!-- Header e Navbar -->
+  <header class="header">
+    <div class="header__container">
+      <a href="#" class="header__logo">DevBurger</a>
+
+      <nav class="header__nav">
+        <ul class="header__menu">
+          <li class="header__item">
+            <a href="#" class="header__link">Home</a>
+          </li>
+          <li class="header__item">
+            <a href="#menu" class="header__link">Cardápio</a>
+          </li>
+          <li class="header__item">
+            <a href="#" class="header__link">Sobre</a>
+          </li>
+          <li class="header__item">
+            <a href="#" class="header__link">Contato</a>
+          </li>
+          <li class="header__item">
+            <a href="/cadastro" class="header__button">Cadastrar</a>
+          </li>
+          <li class="header__item">
+            <a href="/login" class="header__button">Logar</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header__social">
+        <a href="#" class="header__icon"><span class="material-symbols-outlined">thumb_up</span></a>
+        <a href="#" class="header__icon"><span class="material-symbols-outlined">photo_camera</span></a>
       </div>
-    </header>
 
-    <!-- CONTEÚDO -->
+      <button class="header__toggle" type="button">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- carrinho lateral -->
+  <aside class="cart">
+    <label for="toggle-cart" class="close-cart">✕</label>
+
+    <h2>Seu Carrinho</h2>
+
+    <div class="cart-items"></div>
+
+    <div class="cart-footer">
+      <strong>Total: R$ 0,00</strong>
+      <button>Finalizar</button>
+    </div>
+  </aside>
+
+  <main>
     {% block conteudo %}
     {% endblock %}
+  </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p class="footer__text">
-        DevBurger © 2025. Todos os direitos reservados.
-      </p>
-    </footer>
+  <!-- Rodapé -->
+  <footer class="footer">
+    <p class="footer__text">
+      DevBurger © 2025. Todos os direitos reservados.
+    </p>
+  </footer>
 
-  </body>
+</body>
+
 </html>

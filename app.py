@@ -1,5 +1,4 @@
 from flask import Flask, jsonify, redirect, render_template, request, session
-from model import usuario
 from model.carrinho import recuperar_carrinho
 from model.produto import recuperar_produtos
 from model.usuario import Usuario
@@ -11,9 +10,15 @@ def pag_inicial():
     produtos = recuperar_produtos()
     return render_template("index.html", produtos=produtos)
 
+@app.route("/logar")
+def login():
+    return render_template("login.html") 
+
 @app.route("/produto/<codigo>")
 def pag_dois(codigo):
-    return "Rota de produto (ainda não usada no momento)"
+    produto = recuperar_produtos(codigo)
+
+    return render_template("produto.html", produto = produto)
 
 
 @app.route("/cadastrar_usuario", methods=["POST"])
@@ -35,21 +40,22 @@ def logar_usuario():
 
     resultado = Usuario.logar(usuario, senha)
 
-    if not resultado:
+    if resultado:
         session["usuario_logado"] = resultado
+        return redirect("/")
+    else:
+        return "Erro"
 
-    return redirect("/")
+    
 
 @app.route("/api/get/carrinho", methods = ["GET"])
-def api_carrinho():
+def api_carrinho(): 
     if "usuario_logado" in session:
         usuario = session["usuario_logado"]["usuario"]
         carrinho = recuperar_carrinho(usuario)
         return jsonify(carrinho), 200
     else:
         return jsonify({"message":"Usuário não logado."}), 401
-
-
 
 
 

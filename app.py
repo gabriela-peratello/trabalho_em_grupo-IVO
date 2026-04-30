@@ -5,6 +5,8 @@ from model.usuario import Usuario
 
 app = Flask(__name__)
 
+app.secret_key = "gabriel"
+
 @app.route("/")
 def pag_inicial():
     produtos = recuperar_produtos()
@@ -21,31 +23,31 @@ def pag_dois(codigo):
     return render_template("produto.html", produto = produto)
 
 
-@app.route("/cadastrar_usuario", methods=["POST"])
-def cadastrar_usuario():
-    usuario = request.form.get("usuario")
-    senha = request.form.get("senha")
-    nome = request.form.get("nome")
-
-    novo_usuario = Usuario(usuario, senha, nome)
-    novo_usuario.cadastrar()
-
-    return redirect("/")
-
-
-@app.route("/logar/usuario", methods = ["POST"])
+@app.route("/logar/usuario", methods=["POST"])
 def logar_usuario():
-    usuario = request.form.get("usuario")
+   
+    usuario = request.form.get("usuario") 
     senha = request.form.get("senha")
 
     resultado = Usuario.logar(usuario, senha)
 
     if resultado:
-        session["usuario_logado"] = resultado
+        session["usuario_logado"] = {"usuario": resultado[0]}
         return redirect("/")
     else:
-        return "Erro"
+        return "Login falhou", 401
 
+@app.route("/cadastrar_usuario", methods=["POST"]) 
+def cadastrar_usuario():
+    usuario = request.form.get("usuario")
+    senha = request.form.get("senha")
+    nome = request.form.get("nome")
+
+    if usuario and senha:
+        novo_usuario = Usuario(usuario, senha, nome)
+        novo_usuario.cadastrar()
+        return redirect("/logar")
+    return "Dados incompletos", 400
     
 
 @app.route("/api/get/carrinho", methods = ["GET"])

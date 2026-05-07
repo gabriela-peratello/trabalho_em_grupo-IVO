@@ -10,3 +10,14 @@ def recuperar_produtos():
     conexao.close()
 
     return resultado
+
+
+def rec_destq():
+    conexao, cursor = conectar()
+    cursor.execute("""
+        SELECT codigo, foto FROM produtos WHERE destaque = 1
+                """)
+    
+    resultado = cursor.fetchall()
+    conexao.close()
+    return resultado
